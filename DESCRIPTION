@@ -1,7 +1,7 @@
 Package: edxvjc
 Title: edX materials for PH 525 components related to Bioconductor
 Description: Provide CI for edX materials for PH 525 components related to Bioconductor.
-Version: 0.0.0
+Version: 0.0.1
 Author: Vince Carey
 Suggests: knitr, testthat, covr
 Depends: R (>= 3.6.0)

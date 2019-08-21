@@ -23,6 +23,22 @@ opts_chunk$set(fig.path=paste0("figure/", sub("(.*).Rmd","\\1",basename(knitr:::
 suppressWarnings({
 suppressMessages({
 suppressPackageStartupMessages({
+install.packages("BiocManager")
+library(BiocManager)
+ii = installed.packages()
+avail = rownames(ii)
+install_if_needed = function(x)
+ if (!(x %in% avail)) BiocManager::install(x)
+lapply(c("Biobase", "erma", "RNAseqData.HNRNPC.bam.chr14".
+  "airway", "annotate", "minfi", "locfit",
+  "IlluminaHumanMethylation450kmanifest",
+  "IlluminaHumanMethylation450kanno.ilmn12.hg19",
+  "BiocStyle", "GenomicFiles", "GenomicAlignments",
+  "MultiAssayExperiment", "RaggedExperiment", "VariantAnnotation",
+  "VariantTools", "bigrquery", "dplyr", "magrittr", 
+  "curatedTCGAData", "ArrayExpress"), install_if_needed)
+BiocManager::install("genomicsclass/ph525x")
+BiocManager::install("genomicsclass/GSE5859Subset")
 library(Biobase)
 library(data.table)
 library(GEOquery)
@@ -43,7 +59,6 @@ library(MultiAssayExperiment)
 library(RaggedExperiment)
 library(VariantAnnotation)
 library(VariantTools)
-library(ph525x)
 library(bigrquery)
 library(dplyr)
 library(magrittr)
